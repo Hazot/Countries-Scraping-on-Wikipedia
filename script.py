@@ -20,10 +20,10 @@ import json
 # ============================================================
 # 1.a
 
-fileA = pd.read_csv("dataA_alamain.csv")
+fileA = pd.read_csv("./data/data_scraped.csv")
 nom_col = list(fileA.columns)
 array_dataA = np.array(fileA)
-fileA = pd.read_csv("dataA_alamain.csv")
+fileA = pd.read_csv("./data/data_scraped.csv")
 
 nom_col = list(fileA.columns)
 # nom_col
@@ -70,7 +70,7 @@ array_moins_douze = np.delete(np.array(array_moins_douze), 0, axis=1)
 # np.array(array_moins_douze)
 # df_dataA = pd.DataFrame(array_moins_douze_avec_pays)
 # df_dataA.columns = nom_col
-# df_dataA.to_csv("dataA.csv", index=False)
+# df_dataA.to_csv("./data/dataA.csv", index=False)
 
 # ============================================================
 # 1.d
@@ -192,7 +192,7 @@ df_dataB.columns = nom_col
 
 # df_dataB
 
-# df_dataB.to_csv("dataB.csv", index=False)
+# df_dataB.to_csv("./data/dataB.csv", index=False)
 
 # dataC
 array_dataC = np.append(array_moins_douze_avec_pays[:, 0, np.newaxis], array_bin, axis=1)
@@ -204,7 +204,7 @@ df_dataC.columns = nom_col
 
 # df_dataC
 
-# df_dataC.to_csv("dataC.csv", index=False)
+# df_dataC.to_csv("./data/dataC.csv", index=False)
 
 # ============================================================
 # 2.a
@@ -244,7 +244,7 @@ correlations = df_corr.astype("float").corr()
 
 array_correlation = np.array(correlations)
 # corr_json = array_correlation.tolist()
-# with open('corr.json', 'w') as f:
+# with open('./data/corr.json', 'w') as f:
 #     json.dump(corr_json, f)
 
 # 2.b
@@ -257,7 +257,7 @@ for i in range(40):
     correlations_max.append(argmax)
 
 # max_corr_json = np.array(correlations_max).tolist()
-# with open('max_corr.json', 'w') as f:
+# with open('./data/max_corr.json', 'w') as f:
 #     json.dump(max_corr_json, f)
 
 # 2.c
@@ -279,7 +279,7 @@ correlation_moyennes.sort(reverse=True, key=deuxieme_composante)
 # correlation_moyennes
 
 # ordre_json = np.array(correlation_moyennes)[:,0].tolist()
-# with open('ordre.json', 'w') as f:
+# with open('./data/ordre.json', 'w') as f:
 #     json.dump(ordre_json, f)
 
 
@@ -368,7 +368,7 @@ for i in range(40):
 
 # lineaire_paires_json = [row[0] for row in meilleures_paires_regression]
 # lineaire_paires_json = np.array(lineaire_paires_json).tolist()
-# with open('lineaire_paires_colonnes1.json', 'w') as f:
+# with open('./data/lineaire_paires_colonnes1.json', 'w') as f:
 #     json.dump(lineaire_paires_json, f)
 
 nb_occurences_paires = []
@@ -512,7 +512,7 @@ moyenne_scores_bayes.sort(reverse=True,key=deuxieme_composante)
 
 # bayesien_paires_json = [row[0] for row in meilleures_paires_regression]
 # bayesien_paires_json = np.array(bayesien_paires_json).tolist()
-# with open('bayesien_paires_colonnes.json', 'w') as f:
+# with open('./data/bayesien_paires_colonnes.json', 'w') as f:
 #     json.dump(bayesien_paires_json, f)
 
 # smth_bayes, y_reg = zip(*moyenne_scores)
@@ -932,7 +932,7 @@ for i in range(40):
 
 bayesnet.bake()
 
-# with open('reseau.json', 'w') as f:
+# with open('./data/reseau.json', 'w') as f:
 #     f.write(bayesnet.to_json())
 
 comb = list(itertools.combinations(range(40), 2))
